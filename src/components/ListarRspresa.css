@@ -1,0 +1,21 @@
+table, th, td {
+    border: 1px solid;
+    padding: 2px;
+    text-align: center;
+    margin: 2px;
+  
+}
+
+h2{
+    align-items: center; /* Alinhamento vertical no centro */
+    text-align: center;
+
+}
+
+body {
+    height: 100%;
+      margin: 0;
+      display: flex;
+      justify-content: center; /* Alinhamento horizontal no centro */
+      align-items: center; /* Alinhamento vertical no centro */
+}
