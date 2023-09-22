@@ -24,8 +24,6 @@ function ListarEmpresas() {
     return (
         <div>
             <h2> Lista de Empresas</h2>
-            {/* <button onClick={CarregarLista}>Atualizar</button> */}
-
             <table>
                 <thead>
                     <tr>
