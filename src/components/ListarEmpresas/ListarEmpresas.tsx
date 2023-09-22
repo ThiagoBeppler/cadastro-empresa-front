@@ -1,11 +1,11 @@
 import Axios from 'axios'
 import { useEffect, useState } from 'react';
-import { EmpresaModel } from '../models/EmpresaModel';
+import { EmpresaModel } from '../../models/EmpresaModel';
 import dayjs from "dayjs";
 
 
 import './ListarRspresa.css'
-import { cnpjMask } from '../utils/cnpjMask';
+import { cnpjMask } from '../../utils/cnpjMask';
 
 function ListarEmpresas() {
 
