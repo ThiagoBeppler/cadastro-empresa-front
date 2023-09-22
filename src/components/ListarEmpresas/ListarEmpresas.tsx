@@ -4,7 +4,7 @@ import { EmpresaModel } from '../../models/EmpresaModel';
 import dayjs from "dayjs";
 
 
-import './ListarRspresa.css'
+import './ListarEmpresas.css'
 import { cnpjMask } from '../../utils/cnpjMask';
 
 function ListarEmpresas() {
