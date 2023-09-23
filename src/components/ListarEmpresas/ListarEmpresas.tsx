@@ -10,13 +10,15 @@ import { cnpjMask } from '../../utils/cnpjMask';
 function ListarEmpresas() {
 
     const [listaEmpresas, setListaEmpresas] = useState<EmpresaModel[]>([])
-
+    
     const CarregarLista = () => {
         Axios.get("http://localhost:8080/empresa")
-            .then(response => { setListaEmpresas(response.data) });
-
+        .then(response => { setListaEmpresas(response.data) });
+        
     }
-
+    
+    CarregarLista();
+    
     useEffect(() => {
         CarregarLista()
       }, []);
@@ -44,6 +46,8 @@ function ListarEmpresas() {
                     ))}
                 </tbody>
             </table>
+            <br />
+            <br />
         </div>
     )
 }
