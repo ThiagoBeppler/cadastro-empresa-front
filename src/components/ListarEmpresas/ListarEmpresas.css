@@ -19,3 +19,7 @@ body {
       justify-content: center; /* Alinhamento horizontal no centro */
       align-items: center; /* Alinhamento vertical no centro */
 }
+
+.deleteIcon{
+    cursor: pointer;
+}
