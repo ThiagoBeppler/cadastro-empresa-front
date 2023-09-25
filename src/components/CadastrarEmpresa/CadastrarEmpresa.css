@@ -1,0 +1,19 @@
+
+
+table.cadastro {
+    margin: 0 auto; 
+    border-collapse: collapse; 
+    border: 0px;
+    
+
+}
+
+th.cadastro, td.cadastro {
+    padding: 5px; 
+    text-align: center; 
+    border: 0px ;
+}
+
+body{
+    text-align: center;
+}

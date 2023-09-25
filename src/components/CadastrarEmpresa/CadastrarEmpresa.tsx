@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import Axios from 'axios'
 import { InputMask } from '@react-input/mask';
 
+import './CadastrarEmpresa.css'
+
 interface Empresa {
   nome: string;
   cnpj: string;
@@ -9,11 +11,11 @@ interface Empresa {
 
 }
 
- var empresaVazia: Empresa = {
+var empresaVazia: Empresa = {
   nome: '',
   cnpj: '',
   endereco: ''
- }
+}
 
 const CadastarEmpresas: React.FC = () => {
   const [dadosDoFormulario, setDadosDoFormulario] = useState<Empresa>(empresaVazia);
@@ -28,7 +30,7 @@ const CadastarEmpresas: React.FC = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     Axios.post("http://localhost:8080/empresa", dadosDoFormulario)
       .then((response) => {
         console.log(response);
@@ -39,45 +41,60 @@ const CadastarEmpresas: React.FC = () => {
   return (
 
     <form onSubmit={handleSubmit}>
+      <h2> Cadastro Empresa</h2>
+      <table className='cadastro'>
+        <tr>
+          <td className='cadastro'>
+            <label htmlFor="nome">Nome:</label>
+          </td>
+          <td className='cadastro'>
+            <input
+              type="text"
+              id="nome"
+              name="nome"
+              value={dadosDoFormulario.nome}
+              onChange={handleChange}
+              required
+            />
+          </td>
+        </tr>
+        <tr>
+          <td className='cadastro'>
+            <label htmlFor="cnpj">CNPJ:</label>
+          </td>
+          <td className='cadastro'>
+            <InputMask
+              mask='__.___.___/____-__'
+              replacement={{ _: /\d/ }}
+              showMask
+              placeholder='__.___.___/____-__'
+              type="text"
+              id="cnpj"
+              name="cnpj"
+              value={dadosDoFormulario.cnpj}
+              onChange={handleChange}
+              required
+            />
+          </td>
 
-       <h2> Cadastro Empresa</h2>
-      <div>
-        <label htmlFor="nome">Nome:</label>
-        <input
-          type="text"
-          id="nome"
-          name="nome"
-          value={dadosDoFormulario.nome}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="cnpj">CNPJ:</label>
-        <InputMask
-          mask = '__.___.___/____-__'
-          replacement = { { _: /\d/ }}
-          showMask
-          placeholder= '__.___.___/____-__'
-          type="text"
-          id="cnpj"
-          name="cnpj"
-          value={dadosDoFormulario.cnpj}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div>
-        <label htmlFor="endereco">Endereço:</label>
-        <input
-          type="text"
-          id="endereco"
-          name="endereco"
-          value={dadosDoFormulario.endereco}
-          onChange={handleChange}
-          required
-        />
-      </div>
+        </tr>
+        <tr>
+          <td className='cadastro'>
+            <label htmlFor="endereco">Endereço:</label>
+          </td>
+          <td className='cadastro'>
+            <input
+              type="text"
+              id="endereco"
+              name="endereco"
+              value={dadosDoFormulario.endereco}
+              onChange={handleChange}
+              required
+            />
+          </td>
+        </tr>
+      </table>
+      <br />
       <button type="submit">Enviar</button>
     </form>
   );
