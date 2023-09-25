@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Axios from 'axios'
+import { InputMask } from '@react-input/mask';
 
 interface Empresa {
   nome: string;
@@ -53,7 +54,11 @@ const CadastarEmpresas: React.FC = () => {
       </div>
       <div>
         <label htmlFor="cnpj">CNPJ:</label>
-        <input
+        <InputMask
+          mask = '__.___.___/____-__'
+          replacement = { { _: /\d/ }}
+          showMask
+          placeholder= '__.___.___/____-__'
           type="text"
           id="cnpj"
           name="cnpj"
