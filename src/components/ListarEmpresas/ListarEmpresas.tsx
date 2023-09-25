@@ -14,18 +14,26 @@ function ListarEmpresas() {
     const [listaEmpresas, setListaEmpresas] = useState<EmpresaModel[]>([])
     
     const CarregarLista = () => {
-        Axios.get("http://localhost:8080/empresa")
-        .then(response => { setListaEmpresas(response.data) });
-        
+
+        setTimeout(() => {
+            
+            Axios.get("http://localhost:8080/empresa")
+            .then(response => { setListaEmpresas(response.data) });
+            
+        }, 300);
+
     }
 
     const ExcluirEmpresa = (id: number) => {
         Axios.delete("http://localhost:8080/empresa/" + id)
-        .then(response => { setListaEmpresas(response.data) });
+        .then(response => { console.log(response.data) });
         
     }
+
+    setTimeout(() => {
+        CarregarLista();
+    }, 300);
     
-    CarregarLista();
     
     useEffect(() => {
         CarregarLista()
@@ -45,7 +53,7 @@ function ListarEmpresas() {
                     </tr>
                 </thead>
                 <tbody>
-                    {listaEmpresas.map((item) => (
+                    { listaEmpresas.length > 0 &&  listaEmpresas.map((item) => (
                         <tr key={item.id}>
                             <td>{item.nome}</td>
                             <td>{cnpjMask(item.cnpj)}</td>

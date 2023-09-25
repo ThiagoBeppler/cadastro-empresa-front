@@ -31,6 +31,8 @@ const CadastarEmpresas: React.FC = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
+    dadosDoFormulario.cnpj = dadosDoFormulario.cnpj.replace('.','').replace('.','').replace('/','').replace('-','');
+
     Axios.post("http://localhost:8080/empresa", dadosDoFormulario)
       .then((response) => {
         console.log(response);
